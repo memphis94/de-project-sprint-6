@@ -52,8 +52,8 @@ partition by datetime::date
 group by calendar_hierarchy_day(datetime::date, 3, 2);
 
 
-drop table if exists REDRUM94YANDEXRU__STAGING.dialogs;
-drop table if exists REDRUM94YANDEXRUREDRUM94YANDEXRU__STAGING.groups;
-drop table if exists REDRUM94YANDEXRU__STAGING.users;
-drop table if exists REDRUM94YANDEXRU__STAGING.group_log;
+-- drop table if exists REDRUM94YANDEXRU__STAGING.dialogs;
+-- drop table if exists REDRUM94YANDEXRU__STAGING.groups;
+-- drop table if exists REDRUM94YANDEXRU__STAGING.users;
+-- drop table if exists REDRUM94YANDEXRU__STAGING.group_log;
 
