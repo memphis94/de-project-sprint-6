@@ -1,5 +1,6 @@
 from airflow import DAG
 from airflow.operators.bash import BashOperator
+from airflow.operators.empty import EmptyOperator
 from airflow.operators.python import PythonOperator
 from airflow.decorators import dag
 
@@ -51,6 +52,11 @@ def fetch_s3_file(bucket: str, key: str):
 
 @dag(schedule_interval=None, start_date=pendulum.parse('2022-01-01'))
 def sprint6_dag():
+
+    start_task = EmptyOperator(task_id='start')
+
+    end_task = EmptyOperator(task_id='end')
+
     bucket_files = ['groups.csv', 'users.csv', 'dialogs.csv', 'group_log.csv']
 
     task1 = PythonOperator(
@@ -106,7 +112,7 @@ def sprint6_dag():
     )
 
     
-    [task1, task2, task3, task4] >> print_10_lines_of_each >> [load_data_users, load_data_groups, load_data_dialogs, load_data_group_log]
+    start_task >> [task1, task2, task3, task4] >> print_10_lines_of_each >> [load_data_users, load_data_groups, load_data_dialogs, load_data_group_log] >> end_task
 
 
 sprint6_dag = sprint6_dag()

@@ -337,7 +337,7 @@ select
 luga.hk_l_user_group_activity,
 gl.user_id_from as user_id_from,
 gl.event as event,
-gl.datetime as event_dt,
+gl.event_datetime as event_dt,
 now() as load_dt,
 's3' as load_src
 from REDRUM94YANDEXRU__DWH.l_user_group_activity as luga

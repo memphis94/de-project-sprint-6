@@ -45,7 +45,7 @@ create table REDRUM94YANDEXRU__STAGING.group_log
     user_id   int,
     user_id_from int,
     event   varchar(100),
-    datetime      timestamp
+    event_datetime  timestamp
 )
 ORDER BY group_id
 partition by datetime::date
